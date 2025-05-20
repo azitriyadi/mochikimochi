@@ -29,10 +29,24 @@
     </nav>
 
     <!-- Isi -->
-  <div style="height: 100vh;" class="bg-light d-flex justify-content-center align-items-center">
-    <h1>Scroll Down</h1>
-  </div>
-  <div style="height: 100vh;" class="bg-secondary"></div>
+    <div style="height: 100vh;" class="bg-light d-flex justify-content-center align-items-center">
+        <h1>Scroll Down</h1>
+    </div>
+    <div style="height: 100vh;" class="bg-secondary"></div>
+
+    <!-- Script -->
+    <script>
+        const navbar = document.getElementById("mainNavbar");
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 20) {
+                navbar.classList.add("navbar-scrolled");
+                navbar.classList.remove("navbar-transparent");
+            } else {
+                navbar.classList.add("navbar-transparent");
+                navbar.classList.remove("navbar-scrolled");
+            }
+        });
+    </script>
 
     <!-- js bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"

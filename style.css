@@ -26,7 +26,7 @@
 
 /* Styling dasar navbar link */
 .navbar-nav .nav-link {
-    background-color: #f564aa8b;
+    background-color: #FF90BB;
     position: relative;
     color: white;
     font-weight: 500;
@@ -64,7 +64,7 @@
 
 .navbar-scrolled {
     backdrop-filter: blur(10px);
-    background-color: #F564A9 !important;
+    background-color: #FF90BB !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition:
         background-color 0.9s ease 0s,

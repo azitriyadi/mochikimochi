@@ -54,6 +54,15 @@
     width: 100%;
 }
 
+.navbar-nav .nav-link.active {
+    color: #fff;
+}
+
+/* Optionally, tambahkan underline full saat aktif */
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
 .navbar-transparent {
     background-color: transparent;
     transition:
@@ -75,6 +84,16 @@
     /* delay 1.5s untuk shadow */
 }
 
+.btn-pink {
+  background-color: #f48fb1;
+  color: white;
+  border: none;
+}
+.btn-pink:hover {
+  background-color: #ec407a;
+  color: white;
+}
+
 .product-card {
       border-radius: 15px;
       overflow: hidden;
@@ -88,7 +107,7 @@
     }
     .product-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(13, 110, 253, 0.4);
+      box-shadow: 0 10px 20px #ff90bba5;
       z-index: 5;
     }
     .product-img {
@@ -111,7 +130,7 @@
       font-weight: 700;
       font-size: 1.25rem;
       margin-bottom: 0.5rem;
-      color: #0d6efd;
+      color: #FF90BB;
       text-align: center;
     }
     .product-desc {
@@ -122,7 +141,7 @@
       text-align: center;
     }
     .btn-buy {
-      background-color: #0d6efd;
+      background-color: #FF90BB;
       border: none;
       color: white;
       border-radius: 50px;
@@ -130,9 +149,9 @@
       align-self: center;
       transition: background-color 0.3s ease;
       font-weight: 600;
-      box-shadow: 0 3px 6px rgba(13, 110, 253, 0.4);
+      box-shadow: 0 3px 6px #ff90bba5;
     }
     .btn-buy:hover {
-      background-color: #0842c6;
-      box-shadow: 0 6px 12px rgba(8, 66, 198, 0.6);
+      background-color: #FF90BB;
+      box-shadow: 0 6px 12px #ff90bba5;
     }

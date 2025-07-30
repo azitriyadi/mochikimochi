@@ -35,7 +35,11 @@
           <li class="nav-item p-2 text-center"><a class="nav-link rounded py-2 px-3" href="#">HOME</a></li>
           <li class="nav-item p-2 text-center"><a class="nav-link rounded py-2 px-3" href="#produk">PRODUK</a></li>
           <li class="nav-item p-2 text-center"><a class="nav-link rounded py-2 px-3" href="#kontak">KONTAK</a></li>
-          <li class="nav-item p-2 text-center"><a class="nav-link rounded py-2 px-3" href="">check out</a></li>
+          <li class="nav-item p-2 text-center">
+            <a id="checkoutToggle" class="nav-link rounded py-2 px-3" href="javascript:void(0)">
+              <i class="bi bi-cart-check"></i> Check Out
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -52,103 +56,74 @@
   <section class="container py-5" id="produk">
     <h2 class="text-center mb-5 fw-bold" style="color:#FF90BB;">Rasa-Rasa Mochi Kami</h2>
     <div class="row g-4">
-
-    <!-- Card 1 -->
-<div class="col-12 col-md-6 col-lg-4">
-  <div class="product-card">
-    <img src="img/mochi1.png" alt="Matcha" class="product-img" />
-    <div class="card-body">
-      <h5 class="product-title">Matcha</h5>
-      <p class="product-desc">
-        Nikmati rasa matcha dalam kekenyalan mochi yang lembut dan memikat!
-      </p>
-      <p class="product-price fw-bold text-success">Rp12.000</p> <!-- Harga ditambahkan -->
-      <button class="btn btn-buy">Beli Sekarang</button>
-    </div>
-  </div>
-</div>
-
-
-      <!-- Card 2 -->
+      @foreach($products as $product)
       <div class="col-12 col-md-6 col-lg-4">
         <div class="product-card">
-          <img src="img/mochi2.png" alt="⁠Stroberi cheese" class="product-img" />
+          <img src="{{ asset('storage/' . $product->gambar) }}" alt="{{ $product->nama }}" class="product-img" />
           <div class="card-body">
-            <h5 class="product-title">⁠Stroberi cheese</h5>
-            <p class="product-desc">Kejutan rasa dari stroberi manis yang dipadukan dengan krim keju lembut</p>
-            <button class="btn btn-buy">Beli Sekarang</button>
+            <h5 class="product-title">{{ $product->nama }}</h5>
+            <p class="product-desc">
+              {{ $product->deskripsi }}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="product-price fw-bold text-success mb-0">Rp{{ number_format($product->harga, 0, ',', '.') }}</p>
+              <span class="badge {{ $product->stock > 0 ? 'bg-success' : 'bg-danger' }}">
+                {{ $product->stok > 0 ? 'Tersedia' : 'Habis' }}
+              </span>
+            </div>
+            @if ($product->stok > 0)
+            <button class="btn btn-buy mt-2" title="Beli Sekarang">
+              <i class="bi bi-cart-check-fill"></i> Pesan Sekarang
+            </button>
+            @else
+            <button class="btn btn-secondary mt-2" disabled>Stok Habis</button>
+            @endif
           </div>
         </div>
       </div>
-
-      <!-- Card 3 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="product-card">
-          <img src="img/mochi3.png" alt="Stroberi krim" class="product-img" />
-          <div class="card-body">
-            <h5 class="product-title">Stroberi krim</h5>
-            <p class="product-desc">Mochi lembut berisi stroberi segar dan krim vanilla lembut yang creamy</p>
-            <button class="btn btn-buy">Beli Sekarang</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="product-card">
-          <img src="img/mochi4.png" alt="Stroberi cokelat" class="product-img" />
-          <div class="card-body">
-            <h5 class="product-title">Stroberi cokelat</h5>
-            <p class="product-desc">Perpaduan manisnya stroberi segar dan legitnya cokelat premium yang meleleh di mulut</p>
-            <button class="btn btn-buy">Beli Sekarang</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="product-card">
-          <img src="img/mochi5.png" alt="Mangga krim" class="product-img" />
-          <div class="card-body">
-            <h5 class="product-title">Mangga krim</h5>
-            <p class="product-desc">Sensasi tropis dari mangga manis yang juicy dan krim lembut yang menyatu dalam gigitan</p>
-            <button class="btn btn-buy">Beli Sekarang</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="product-card">
-          <img src="img/mochi6.png" alt="Oreo" class="product-img" />
-          <div class="card-body">
-            <h5 class="product-title">Oreo</h5>
-            <p class="product-desc">Crunchy dan chewy jadi satu! Mochi rasa oreo dengan isian krim dan taburan kepingan biskuit oreo yang khas</p>
-            <button class="btn btn-buy">Beli Sekarang</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="product-card">
-          <img src="img/mochi7.png" alt="Mochi Green Tea" class="product-img" />
-          <div class="card-body">
-            <h5 class="product-title">Mochi 7</h5>
-            <p class="product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, nobis.</p>
-            <button class="btn btn-buy">Beli Sekarang</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="product-card">
-          <img src="img/mochi8.png" alt="Full Coco" class="product-img" />
-          <div class="card-body">
-            <h5 class="product-title">Full Coco</h5>
-            <p class="product-desc">Full cokelat, full puas! Mochi dengan lapisan dan isian cokelat meleleh</p>
-            <button class="btn btn-buy">Beli Sekarang</button>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </section>
+  <!-- Sidebar Checkout Toggleable -->
+  <aside id="checkoutSidebar" class="checkout-sidebar closed">
+    <div class="p-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold mb-0"><i class="bi bi-cart-check"></i> Check Out</h5>
+        <button id="closeSidebar" class="btn-close"></button>
+      </div>
+
+      <!-- Daftar Produk -->
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex align-items-center">
+          <img src="img/mochi1.png" alt="Matcha" width="50" height="50" class="rounded me-3" />
+
+          <div class="flex-grow-1">
+            <div class="fw-semibold">Matcha</div>
+            <div class="d-flex align-items-center gap-2 mt-1">
+              <button class="btn btn-sm btn-outline-secondary px-2 py-0 btn-minus">−</button>
+              <span class="qty">1</span>
+              <button class="btn btn-sm btn-outline-secondary px-2 py-0 btn-plus">+</button>
+            </div>
+          </div>
+
+          <span class="fw-bold text-success ms-3">Rp12.000</span>
+        </li>
+      </ul>
+
+      <hr />
+
+      <!-- Total -->
+      <div class="d-flex justify-content-between fw-bold mb-3">
+        <span>Total</span>
+        <span class="text-success">Rp36.000</span>
+      </div>
+
+      <!-- Tombol Checkout -->
+      <button class="btn btn-success w-100">
+        <i class="bi bi-whatsapp"></i> Pesan via WhatsApp
+      </button>
+    </div>
+  </aside>
 
   <section id="kontak" class="py-5 bg-light" style="height: 100vh;">
     <div class="container">
@@ -237,7 +212,7 @@
   <script>
     const navbar = document.getElementById("mainNavbar");
 
-    window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", function() {
       if (window.scrollY > 20) {
         navbar.classList.add("navbar-scrolled");
         navbar.classList.remove("navbar-transparent");
@@ -270,6 +245,44 @@
       });
     });
   </script>
+
+  <script>
+    const toggleBtn = document.getElementById("checkoutToggle");
+    const sidebar = document.getElementById("checkoutSidebar");
+    const closeBtn = document.getElementById("closeSidebar");
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.remove("closed");
+      sidebar.classList.add("open");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.remove("open");
+      sidebar.classList.add("closed");
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.btn-plus').forEach(button => {
+        button.addEventListener('click', function() {
+          const qtyElement = this.previousElementSibling;
+          let qty = parseInt(qtyElement.textContent);
+          qtyElement.textContent = qty + 1;
+        });
+      });
+
+      document.querySelectorAll('.btn-minus').forEach(button => {
+        button.addEventListener('click', function() {
+          const qtyElement = this.nextElementSibling;
+          let qty = parseInt(qtyElement.textContent);
+          if (qty > 1) {
+            qtyElement.textContent = qty - 1;
+          }
+        });
+      });
+    });
+  </script>
+
 
   <!-- js bootstrap 5 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"

@@ -24,6 +24,7 @@
             <th>Nama</th>
             <th>Gambar</th>
             <th>Harga</th>
+            <th>Stok</th>
             <th>Deskripsi</th>
             <th>Aksi</th>
           </tr>
@@ -63,6 +64,9 @@
           }
         },
         {
+          data: 'stok'
+        },
+        {
           data: 'deskripsi'
         },
         {
@@ -99,6 +103,7 @@
         $('#edit-id').val(res.id);
         $('#edit-nama').val(res.nama);
         $('#edit-harga').val(res.harga);
+        $('#edit-stok').val(res.stok);
         $('#edit-deskripsi').val(res.deskripsi);
         $('#modalEdit').modal('show');
       });

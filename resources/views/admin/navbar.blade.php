@@ -3,7 +3,7 @@
     <span class="navbar-brand">Dashboard Admin</span>
 
     <div class="d-flex ms-auto">
-      <form method="POST" action="">
+      <form method="POST" action="{{ route('logout') }}">
         @csrf
         <button type="submit" class="btn btn-outline-danger">
           <i class="bi bi-box-arrow-right me-1"></i> Logout
@@ -12,4 +12,3 @@
     </div>
   </div>
 </nav>
-

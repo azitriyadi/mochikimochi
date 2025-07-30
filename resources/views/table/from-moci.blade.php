@@ -21,6 +21,10 @@
                     <input type="number" name="harga" class="form-control" required />
                   </div>
                   <div class="mb-2">
+                    <label>Stok</label>
+                    <input type="number" name="stok" class="form-control" required />
+                  </div>
+                  <div class="mb-2">
                     <label>Deskripsi</label>
                     <textarea name="deskripsi" class="form-control"></textarea>
                   </div>
@@ -55,6 +59,10 @@
                   <div class="mb-2">
                     <label>Harga</label>
                     <input type="number" name="harga" id="edit-harga" class="form-control" required />
+                  </div>
+                  <div class="mb-2">
+                    <label>Stok</label>
+                    <input type="number" name="stok" id="edit-stok" class="form-control" required />
                   </div>
                   <div class="mb-2">
                     <label>Deskripsi</label>
